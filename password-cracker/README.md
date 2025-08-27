@@ -79,3 +79,19 @@ nl -ba hashes.txt
 ```
 ![step 3](./screenshots/03-generate-hashes.png)
 
+### Step 4 — Crack Hashes with John the Ripper
+
+**Why we do this:**  
+John the Ripper tests each word from our custom wordlist by hashing it with SHA-256 and comparing the result to the hashes in `hashes.txt`.  
+If a match is found, the original password is recovered. This simulates how attackers perform offline brute-force or dictionary attacks against stolen hash databases.
+
+**Commands I ran:**
+```bash
+# Crack the hashes using our wordlist
+/snap/bin/john-the-ripper --format=Raw-SHA256 --wordlist=wordlist.txt hashes.txt
+
+# Show the cracked passwords in a clean summary
+/snap/bin/john-the-ripper --show --format=Raw-SHA256 hashes.txt
+```
+
+
