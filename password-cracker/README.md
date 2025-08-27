@@ -25,3 +25,4 @@ This lab reinforces the importance of strong password policies, salted/slow hash
 sudo apt update && sudo apt install -y john
 john --version
 ```
+![step 1](./screenshots/01-install-john.png)
