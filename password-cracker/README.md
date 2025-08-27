@@ -49,3 +49,33 @@ wc -l wordlist.txt && head -n 5 wordlist.txt
 ```
 ![step 2](./screenshots/02-wordlist.png)
 
+### Step 3 — Generate SHA-256 Hashes
+
+**Why we do this:**  
+Systems don’t store plain-text passwords; they store **hashes**. A hash is a one-way transformation of a password.  
+Attackers don’t “reverse” hashes — instead, they hash guesses from a wordlist and compare results.  
+Here, I generated SHA-256 hashes for three weak test passwords (`Password123`, `letmein`, `Qwerty123!`) that also exist in my wordlist.
+
+**Commands I ran:**
+```bash
+# Create a test password file
+cat << 'EOF' > to_hash.txt
+Password123
+letmein
+Qwerty123!
+EOF
+
+# Confirm the file
+cat to_hash.txt
+
+# Generate and save hashes into hashes.txt
+: > hashes.txt
+printf "%s" "Password123" | sha256sum | awk '{print $1}' >> hashes.txt
+printf "%s" "letmein"     | sha256sum | awk '{print $1}' >> hashes.txt
+printf "%s" "Qwerty123!"  | sha256sum | awk '{print $1}' >> hashes.txt
+
+# Display hashes with line numbers
+nl -ba hashes.txt
+```
+
+
