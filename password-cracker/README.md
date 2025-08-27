@@ -108,7 +108,7 @@ If a match is found, the original password is recovered. This simulates how atta
 - Even when hashed, if passwords are simple and predictable, they can be cracked almost instantly.  
 - Enforcing strong password policies, multi-factor authentication, and salting hashes are critical defenses against these types of attacks.  
 
-📸 **Final Screenshot:**  
-- `05-show-result.png` — John the Ripper summary showing all cracked passwords.
+![step 5](./screenshots/05-show-result.png)
+- John the Ripper summary showing all cracked passwords.
 
 
