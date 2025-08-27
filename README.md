@@ -7,7 +7,7 @@ Each project is documented thoroughly with commands, screenshots, explanations, 
 
 ## 📑 Projects
 
-### 1. [Cowrie SSH/Telnet Honeypot](honeypot-cowrie/README.md)  
+1. [Cowrie SSH/Telnet Honeypot](honeypot-cowrie/README.md)  
 - Deployed Cowrie, a medium-interaction honeypot, inside a virtualized Ubuntu environment.  
 - Captures SSH and Telnet login attempts, credentials, and attacker interactions.  
 - Validates functionality by simulating adversary activity and analyzing logs.  
