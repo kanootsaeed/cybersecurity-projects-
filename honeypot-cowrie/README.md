@@ -56,3 +56,13 @@ git clone https://github.com/cowrie/cowrie.git
 cd cowrie
 ```
 ![step 4](./screenshots/04-clone-cowrie-repo.png) 
+
+### 5. Create and Activate Python Virtual Environment  
+
+Cowrie should be installed inside a virtual environment to keep dependencies isolated.  
+
+```bash
+python3 -m venv cowrie-env
+source cowrie-env/bin/activate
+```
+
