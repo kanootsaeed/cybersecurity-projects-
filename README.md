@@ -5,7 +5,7 @@ Each project is documented thoroughly with commands, screenshots, explanations, 
 
 ---
 
-## 📑 Projects
+### 📑 Projects
 
 1. [Cowrie SSH/Telnet Honeypot](honeypot-cowrie/README.md)  
 - Deployed Cowrie, a medium-interaction honeypot, inside a virtualized Ubuntu environment.  
