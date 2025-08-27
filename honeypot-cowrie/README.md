@@ -65,4 +65,5 @@ Cowrie should be installed inside a virtual environment to keep dependencies iso
 python3 -m venv cowrie-env
 source cowrie-env/bin/activate
 ```
+![step 5](./screenshots/05-setup-venv.png)
 
