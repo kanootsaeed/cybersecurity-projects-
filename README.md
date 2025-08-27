@@ -1,4 +1,4 @@
-# 🛡️ Cybersecurity Projects
+## 🛡️ Cybersecurity Projects
 
 This repository contains a collection of hands-on labs and projects that simulate real-world cybersecurity concepts, tools, and defensive strategies.  
 Each project is documented thoroughly with commands, screenshots, explanations, and analysis — designed to demonstrate both technical execution and analytical reasoning.  
