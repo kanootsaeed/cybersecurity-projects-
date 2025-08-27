@@ -26,3 +26,10 @@ sudo apt update && sudo apt upgrade -y
 ```
 ![Step 1](./screenshots/01-system-update.png)
 
+### 2. Install Required Dependencies  
+
+Cowrie requires Python3, Git, and several supporting libraries.  
+
+```bash
+sudo apt install -y git python3 python3-venv python3-dev libssl-dev libffi-dev build-essential authbind less
+```
