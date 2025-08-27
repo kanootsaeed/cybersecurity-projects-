@@ -12,7 +12,6 @@ Each project is documented thoroughly with commands, screenshots, explanations, 
 - Captures SSH and Telnet login attempts, credentials, and attacker interactions.  
 - Validates functionality by simulating adversary activity and analyzing logs.  
 
-*(More projects will be added — IDS/IPS, SOC log analysis, threat hunting labs, etc.)*  
 
 2. [Password Cracker with John the Ripper](./password-cracker/README.md)
 
