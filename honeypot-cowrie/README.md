@@ -35,3 +35,13 @@ sudo apt install -y git python3 python3-venv python3-dev libssl-dev libffi-dev b
 ```
 ![step 2](./screenshots/02-install-dependencies.png)
 
+### 3. Create a Dedicated User for Cowrie
+
+Create a non-privileged user account for running Cowrie:
+
+```bash
+sudo adduser --disabled-password cowrie
+```
+You will be prompted to enter user details (Full Name, Room Number, etc.).
+Press ENTER to accept the defaults, or enter placeholder values if you prefer.
+
