@@ -96,5 +96,19 @@ If a match is found, the original password is recovered. This simulates how atta
 ![step 4](./screenshots/04-cracking-result.png)
 ![step 4](./screenshots/04b-cracking-fix.png)
 
+### Step 5 — Conclusion & Analysis
+
+**Key Takeaways:**  
+- Hashing is a one-way transformation used to store passwords securely. Systems never keep raw passwords in plain text.  
+- However, weak or common passwords (like `Password123`, `letmein`, and `Qwerty123!`) can be quickly cracked using tools such as John the Ripper and a simple custom wordlist.  
+- This lab demonstrated how attackers perform dictionary attacks: by hashing guesses from a wordlist and comparing them against stored hashes until a match is found.  
+
+**Why this matters in cybersecurity:**  
+- Weak passwords remain one of the biggest security risks for organizations.  
+- Even when hashed, if passwords are simple and predictable, they can be cracked almost instantly.  
+- Enforcing strong password policies, multi-factor authentication, and salting hashes are critical defenses against these types of attacks.  
+
+📸 **Final Screenshot:**  
+- `05-show-result.png` — John the Ripper summary showing all cracked passwords.
 
 
