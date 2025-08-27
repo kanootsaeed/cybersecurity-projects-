@@ -81,4 +81,17 @@ pip list
 ```
 ![step 6](./screenshots/06-install-pip-dependencies.png) 
 
+### 7. Configure Cowrie
+
+Copy the default configuration file to create your own working `cowrie.cfg` file:
+
+```bash
+cp etc/cowrie.cfg.dist etc/cowrie.cfg
+```
+Verify the file exists in the etc/ directory:
+```
+ls -la etc/
+```
+![step 7](./screenshots/07-configure-cowrie.png)
+
 
