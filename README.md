@@ -14,7 +14,7 @@ Each project is documented thoroughly with commands, screenshots, explanations, 
 
 *(More projects will be added — IDS/IPS, SOC log analysis, threat hunting labs, etc.)*  
 
-2. Password Cracker with John the Ripper
+2. [Password Cracker with John the Ripper](./password-cracker/README.md)
 
 - Installed and configured **John the Ripper** on Ubuntu VM for password cracking demonstrations.
 - Created a small custom **wordlist** of common passwords.
@@ -22,7 +22,6 @@ Each project is documented thoroughly with commands, screenshots, explanations, 
 - Used John the Ripper to crack the hashes and displayed results.
 - Analyzed why weak passwords are easily broken and the importance of strong password policies.
 
-[View Project →](./password-cracker/README.md)
 
 
 ---
