@@ -24,5 +24,5 @@ After installing Ubuntu, updated and upgraded system packages:
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
-![Step 1 - Updating Ubuntu](screenshots/step1 .png)
+![Step 1](screenshots/step1.png)
 
