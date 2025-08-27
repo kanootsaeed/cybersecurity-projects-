@@ -125,12 +125,14 @@ tail -f var/log/cowrie/cowrie.log
 
 ### 10. Simulate Attack Attempts
 
-To validate that Cowrie is functioning correctly, I attempted to SSH into the honeypot from my host machine using invalid credentials.  
-Cowrie successfully captured and logged these failed authentication attempts.
+To validate that Cowrie is functioning, attempt to connect via SSH.  
+Remember, Cowrie listens on **port 2222** by default, not the standard port 22. 
 
 ```bash
 ssh test@192.168.x.x -p 2222
 ```
 ![step 10](./screenshots/10-simulated-attack.png)
 
+When testing, you will see failed login attempts captured in the logs. This confirms that the honeypot is intercepting and recording activity exactly as expected.
+In a real-world deployment, attackers scanning your network would hit this service, allowing you to analyze their behavior in a safe and controlled environment.
 
