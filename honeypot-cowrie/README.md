@@ -67,3 +67,18 @@ source cowrie-env/bin/activate
 ```
 ![step 5](./screenshots/05-setup-venv.png)
 
+### 6. Install Python Dependencies
+
+Cowrie requires several Python libraries. Install all dependencies listed in the `requirements.txt` file:
+
+```bash
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+After installation, verify the packages with:
+```
+pip list
+```
+![step 6](./screenshots/06-install-pip-dependencies.png) 
+
+
