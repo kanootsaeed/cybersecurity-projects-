@@ -123,4 +123,14 @@ tail -f var/log/cowrie/cowrie.log
 ```
 ![step 9](./screenshots/09-monitor-logs.png)
 
+### 10. Simulate Attack Attempts
+
+To validate that Cowrie is functioning correctly, I attempted to SSH into the honeypot from my host machine using invalid credentials.  
+Cowrie successfully captured and logged these failed authentication attempts.
+
+```bash
+ssh test@192.168.x.x -p 2222
+```
+![step 10](./screenshots/10-simulated-attack.png)
+
 
