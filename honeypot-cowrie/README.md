@@ -108,4 +108,19 @@ bin/cowrie status
 ![step 8](./screenshots/08-start-cowrie.png)
 ![step 8](./screenshots/08-verify-status.png)
 
+### 9. Monitor Cowrie Logs
+
+Cowrie stores logs in the `var/log/cowrie/` directory. These logs capture all SSH/Telnet connection attempts, authentication attempts, and commands executed by attackers.
+
+List the contents of the log directory:
+
+```bash
+ls -la var/log/cowrie/
+```
+Then use tail -f to monitor the log file in real-time:
+```
+tail -f var/log/cowrie/cowrie.log
+```
+![step 9](./screenshots/09-monitor-logs.png)
+
 
