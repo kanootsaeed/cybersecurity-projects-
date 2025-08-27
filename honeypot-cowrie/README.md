@@ -55,4 +55,4 @@ su - cowrie
 git clone https://github.com/cowrie/cowrie.git
 cd cowrie
 ```
-![step 4](04-clone-cowrie-repo.png) 
+![step 4](./screenshots/04-clone-cowrie-repo.png) 
