@@ -93,5 +93,6 @@ If a match is found, the original password is recovered. This simulates how atta
 # Show the cracked passwords in a clean summary
 /snap/bin/john-the-ripper --show --format=Raw-SHA256 hashes.txt
 ```
+![step 4](./screenshots/04-cracking-result.png)
 
 
