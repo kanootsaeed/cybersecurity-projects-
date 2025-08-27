@@ -47,5 +47,5 @@ EOF
 # Quick check
 wc -l wordlist.txt && head -n 5 wordlist.txt
 ```
-![step 2](02-wordlist.png)
+![step 2](./screenshots/02-wordlist.png)
 
