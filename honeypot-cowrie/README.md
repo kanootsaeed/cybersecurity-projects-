@@ -94,4 +94,18 @@ ls -la etc/
 ```
 ![step 7](./screenshots/07-configure-cowrie.png)
 
+### 8. Start and Verify Cowrie
+
+Start the Cowrie honeypot using the provided script:
+
+```bash
+bin/cowrie start
+```
+Then check its status to confirm it is running:
+```
+bin/cowrie status
+```
+![step 8](./screenshots/08-start-cowrie.png)
+![step 8](./screenshots/08-verify-status.png)
+
 
