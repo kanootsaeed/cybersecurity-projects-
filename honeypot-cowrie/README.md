@@ -44,4 +44,5 @@ sudo adduser --disabled-password cowrie
 ```
 You will be prompted to enter user details (Full Name, Room Number, etc.).
 Press ENTER to accept the defaults, or enter placeholder values if you prefer.
+![step 3](./screenshots/03-create-cowrie-user.png)
 
