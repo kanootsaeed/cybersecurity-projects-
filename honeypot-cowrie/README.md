@@ -46,3 +46,13 @@ You will be prompted to enter user details (Full Name, Room Number, etc.).
 Press ENTER to accept the defaults, or enter placeholder values if you prefer.
 ![step 3](./screenshots/03-create-cowrie-user.png)
 
+### 4. Clone the Cowrie Repository  
+
+Switch to the `cowrie` user and clone the official Cowrie repository from GitHub:  
+
+```bash
+su - cowrie
+git clone https://github.com/cowrie/cowrie.git
+cd cowrie
+```
+![step 4](04-clone-cowrie-repo.png) 
