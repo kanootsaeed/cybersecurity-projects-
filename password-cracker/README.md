@@ -77,5 +77,5 @@ printf "%s" "Qwerty123!"  | sha256sum | awk '{print $1}' >> hashes.txt
 # Display hashes with line numbers
 nl -ba hashes.txt
 ```
-
+![step 3](./screenshots/03-generate-hashes.png)
 
