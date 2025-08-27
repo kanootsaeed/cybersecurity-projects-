@@ -26,3 +26,26 @@ sudo apt update && sudo apt install -y john
 john --version
 ```
 ![step 1](./screenshots/01-install-john.png)
+
+### Step 2 — Create a Small Wordlist
+
+**Why we do this:**  
+Attackers rarely guess passwords randomly. Instead, they rely on *wordlists* — collections of the most common passwords people use.  
+For this lab, I created a **tiny custom wordlist** with just a few weak examples to simulate this process.
+
+**Command:**
+```bash
+cat << 'EOF' > wordlist.txt
+password
+Password123
+qwerty
+letmein
+admin123
+Qwerty123!
+EOF
+
+# Quick check
+wc -l wordlist.txt && head -n 5 wordlist.txt
+```
+![step 2](02-wordlist.png)
+
