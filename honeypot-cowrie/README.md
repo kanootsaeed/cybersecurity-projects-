@@ -1,12 +1,9 @@
 ### Cowrie SSH/Telnet Honeypot  
 
 ### 🔎 Overview  
-This project demonstrates the deployment and configuration of **Cowrie**, a medium-interaction SSH/Telnet honeypot. The honeypot is designed to emulate a vulnerable system, attract attackers, and capture their behavior in a controlled environment.  
-
-## Summary
 This project sets up a **Cowrie** honeypot (fake SSH/Telnet server) to observe attacker behavior. I show how raw logs become analyst-friendly tables, add a real detection rule for brute force, and include a small SOC playbook for triage and escalation decisions.
 
-## Architecture / Data Flow
+### Architecture / Data Flow
 ```mermaid
 flowchart TD
 A["Internet Attacker"] -->|SSH/Telnet| B["Cowrie VM"];
@@ -19,18 +16,22 @@ B --> C;
 C --> D["Agent/Filebeat (ship logs)"];
 D --> E["SIEM (Elastic / Splunk / Sentinel)"];
 
-%% Two concrete detections
-E --> R1["Rule: ≥10 failed SSH in 5m by src_ip"];
-E --> R2["Rule: any login SUCCESS to Cowrie"];
+%% Detections with explicit severity
+E --> R1["Rule: ≥10 failed SSH in 5m by src_ip (SEV: MEDIUM)"];
+E --> R2["Rule: any login SUCCESS to Cowrie (SEV: HIGH)"];
 
 R1 --> F["Alert"];
 R2 --> F;
-F --> G["Triage: check success & commands; enrich IP; correlate"];
 
+%% Enrichment step (real SOC behavior)
+F --> X["Enrichment: whois / IP reputation / geo"];
+X --> G["Triage: check success & commands; correlate artifacts"];
+
+%% Decisions & outcomes
 G --> H{"Decision"};
 H -->|Contain| I["Block IP (lab)"];
-H -->|Escalate| J["Incident Response"];
-H -->|Close/Tune| K["Adjust threshold / whitelist scanner"];
+H -->|Escalate| J["Escalate to SOC2 / IR Team\n(Create ticket in Jira/ServiceNow)"];
+H -->|Close/Tune| K["Adjust threshold / whitelist known scanner"];
 ```
 
 ---
