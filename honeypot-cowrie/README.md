@@ -3,7 +3,17 @@
 ### 🔎 Overview  
 This project demonstrates the deployment and configuration of **Cowrie**, a medium-interaction SSH/Telnet honeypot. The honeypot is designed to emulate a vulnerable system, attract attackers, and capture their behavior in a controlled environment.  
 
-By setting this up, I simulated how adversaries attempt to connect to exposed SSH services and captured the logs of their login attempts and commands. This is a foundational project for developing skills in intrusion detection, log analysis, and adversary emulation.  
+## Summary
+This project sets up a **Cowrie** honeypot (fake SSH/Telnet server) to observe attacker behavior. I show how raw logs become analyst-friendly tables, add a real detection rule for brute force, and include a small SOC playbook for triage and escalation decisions.
+
+## Architecture / Data Flow
+```mermaid
+graph TD
+A[Internet Attacker] -->|SSH/Telnet| B[Cowrie VM]
+B --> C[cowrie.json (raw logs)]
+C --> D[Detection Rule: SSH brute threshold]
+D --> E[Alert -> Triage -> Escalate?]
+
 
 ---
 
