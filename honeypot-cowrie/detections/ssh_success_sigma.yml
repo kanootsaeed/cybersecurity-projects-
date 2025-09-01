@@ -1,0 +1,11 @@
+title: SSH Success to Cowrie (High Severity)
+id: 1a2b3c4d-ssh-cowrie-success
+status: experimental
+description: Detects any successful login event to the Cowrie honeypot
+logsource: { product: linux, service: cowrie }
+detection:
+  selection:
+    eventid: "cowrie.login.success"
+  condition: selection
+level: high
+tags: [attack.lateral_movement, attack.t1021]
