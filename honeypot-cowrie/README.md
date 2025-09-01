@@ -10,9 +10,27 @@ This project sets up a **Cowrie** honeypot (fake SSH/Telnet server) to observe a
 ```mermaid
 flowchart TD
 A["Internet Attacker"] -->|SSH/Telnet| B["Cowrie VM"];
-B --> C["cowrie.json (raw logs)"];
-C --> D["Detection Rule: SSH brute threshold"];
-D --> E["Alert → Triage → Escalate"];
+subgraph Lab
+  B
+  C["cowrie.json (raw logs)"]
+  O["run.sh → events.csv & top_attackers.csv"]
+end
+B --> C;
+C --> D["Agent/Filebeat (ship logs)"];
+D --> E["SIEM (Elastic / Splunk / Sentinel)"];
+
+%% Two concrete detections
+E --> R1["Rule: ≥10 failed SSH in 5m by src_ip"];
+E --> R2["Rule: any login SUCCESS to Cowrie"];
+
+R1 --> F["Alert"];
+R2 --> F;
+F --> G["Triage: check success & commands; enrich IP; correlate"];
+
+G --> H{"Decision"};
+H -->|Contain| I["Block IP (lab)"];
+H -->|Escalate| J["Incident Response"];
+H -->|Close/Tune| K["Adjust threshold / whitelist scanner"];
 ```
 
 ---
