@@ -13,7 +13,7 @@ A[Internet Attacker] -->|SSH/Telnet| B[Cowrie VM]
 B --> C[cowrie.json (raw logs)]
 C --> D[Detection Rule: SSH brute threshold]
 D --> E[Alert -> Triage -> Escalate?]
-
+```
 
 ---
 
