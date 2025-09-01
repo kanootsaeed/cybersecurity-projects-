@@ -1,0 +1,13 @@
+title: SSH Brute Force Against Cowrie
+id: 9f1a4d12-ssh-cowrie-bruteforce
+status: experimental
+description: Detects ≥10 failed SSH logins from the same src_ip within 5 minutes
+logsource:
+  product: linux
+  service: cowrie
+detection:
+  selection:
+    eventid: "cowrie.login.failed"
+  condition: selection
+level: medium
+tags: [attack.credential_access, attack.t1110]
