@@ -105,7 +105,7 @@ R2 (success)
 Cowrie_CL
 | where eventid_s == "cowrie.login.success"
 </details>
-**How I respond:** see [PLAYBOOK.MD](PLAYBOOK.MD)
+**How I respond:** see [PLAYBOOK.md](PLAYBOOK.md)
 
 ---
 
