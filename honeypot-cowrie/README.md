@@ -1,7 +1,9 @@
 ### Cowrie SSH/Telnet Honeypot  
 
 ### 🔎 Overview  
-This project sets up a **Cowrie** honeypot (fake SSH/Telnet server) to observe attacker behavior. I show how raw logs become analyst-friendly tables, add a real detection rule for brute force, and include a small SOC playbook for triage and escalation decisions.
+This lab deploys a **Cowrie SSH honeypot**, captures attacker activity, and turns it into **actionable detections** plus a SOC **response playbook**.  
+It includes a one-command demo (`./run.sh`) that generates CSV evidence and **ready-to-use SPL/KQL** for Splunk, Elastic, and Microsoft Sentinel.  
+Outcomes: identify brute-force sources, flag **any successful login**, and walk through triage/contain/escalate with attached evidence.
 
 ### Architecture / Data Flow
 ```mermaid
@@ -234,6 +236,11 @@ ssh test@192.168.x.x -p 2222
 ```
 ![step 10](./screenshots/10-simulated-attack.png)
 
-When testing, you will see failed login attempts captured in the logs. This confirms that the honeypot is intercepting and recording activity exactly as expected.
-In a real-world deployment, attackers scanning your network would hit this service, allowing you to analyze their behavior in a safe and controlled environment.
+### Skills Demonstrated
+- Log parsing & enrichment (jq), data summarization (CSV results)
+- SIEM detections: Splunk SPL, Elastic KQL, Microsoft Sentinel KQL
+- Sigma rules: brute-force threshold & success login
+- SOC playbook writing (triage, decision, evidence)
+
+
 
