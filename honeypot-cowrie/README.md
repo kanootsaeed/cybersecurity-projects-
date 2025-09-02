@@ -43,7 +43,6 @@ H -->|Close/Tune| K["Adjust threshold / whitelist known scanner"];
 - Threshold rule: [`detections/ssh_bruteforce_sigma.yml`](detections/ssh_bruteforce_sigma.yml)
 - Success rule:   [`detections/ssh_success_sigma.yml`](detections/ssh_success_sigma.yml)
 
-<details>
 <summary><strong>Elastic (KQL)</strong> — create a Threshold rule</summary>
 
 **R1 (threshold)**
