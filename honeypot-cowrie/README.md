@@ -33,6 +33,38 @@ H -->|Contain| I["Block IP (lab)"];
 H -->|Escalate| J["Escalate to SOC2 / IR Team\n(Create ticket in Jira/ServiceNow)"];
 H -->|Close/Tune| K["Adjust threshold / whitelist known scanner"];
 ```
+### Detection & Response
+
+**What I detect**
+- **R1 (MED):** ≥10 failed SSH logins from the same `src_ip` within 5 minutes (brute-force threshold)
+- **R2 (HIGH):** any successful login to the Cowrie honeypot
+
+**Portable rules (Sigma)**
+- Threshold rule: [`detections/ssh_bruteforce_sigma.yml`](detections/ssh_bruteforce_sigma.yml)
+- Success rule:   [`detections/ssh_success_sigma.yml`](detections/ssh_success_sigma.yml)
+
+<details>
+<summary><strong>Elastic (KQL)</strong> — create a Threshold rule</summary>
+
+**R1 (threshold)**
+- Query:  
+  `eventid: "cowrie.login.failed"`
+- Threshold: **by `src_ip` ≥ 10** in **5 minutes**
+
+**R2 (scheduled query)**
+- Query:  
+  `eventid: "cowrie.login.success"`
+</details>
+
+<details>
+<summary><strong>Splunk (SPL)</strong></summary>
+
+**R1 (threshold)**
+```splunk
+index=cowrie eventid="cowrie.login.failed"
+| bucket _time span=5m
+| stats count by _time, src_ip
+| where count >= 10
 
 ---
 
