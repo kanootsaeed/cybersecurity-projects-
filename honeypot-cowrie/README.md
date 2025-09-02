@@ -95,9 +95,11 @@ index=cowrie eventid="cowrie.login.success"
 
 R1 (threshold)
 Cowrie_CL
+```
 | where eventid_s == "cowrie.login.failed"
 | summarize cnt=count() by src_ip=src_ip_s, bin(TimeGenerated, 5m)
 | where cnt >= 10
+```
 
 R2 (success)
 Cowrie_CL
