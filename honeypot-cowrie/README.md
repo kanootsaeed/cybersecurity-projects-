@@ -55,7 +55,6 @@ H -->|Close/Tune| K["Adjust threshold / whitelist known scanner"];
   `eventid: "cowrie.login.success"`
 </details>
 
-<details>
 
 <details>
 <summary><strong>Splunk (SPL)</strong></summary>
