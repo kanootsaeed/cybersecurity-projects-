@@ -73,8 +73,6 @@ R2 (success)
 Query:
 eventid: "cowrie.login.success"
 
-</details> <details> <summary><strong>Splunk (SPL)</strong></summary>
-
 R1 (threshold)
 index=cowrie eventid="cowrie.login.failed"
 | bucket _time span=5m
@@ -83,8 +81,6 @@ index=cowrie eventid="cowrie.login.failed"
 
 R2 (success)
 index=cowrie eventid="cowrie.login.success"
-
-</details> <details> <summary><strong>Splunk (SPL)</strong></summary>
 
 R1 (threshold)
 index=cowrie eventid="cowrie.login.failed"
