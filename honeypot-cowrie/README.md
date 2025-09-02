@@ -45,32 +45,33 @@ H -->|Close/Tune| K["Adjust threshold / whitelist known scanner"];
 
 <summary><strong>Elastic (KQL)</strong> — create a Threshold rule</summary>
 
-**R1 (threshold)**
-- Query:  
-  `eventid: "cowrie.login.failed"`
-- Threshold: **by `src_ip` ≥ 10** in **5 minutes**
+**R1 (threshold)**  
+Query:
+```text
+eventid: "cowrie.login.failed"
+```
+Threshold: by src_ip ≥ 10 in 5 minutes
+R2 (success)
+Query:
+```
+eventid: "cowrie.login.success"
+```
 
-**R2 (scheduled query)**
-- Query:  
-  `eventid: "cowrie.login.success"`
-</details>
-
-
-<details>
-<summary><strong>Splunk (SPL)</strong></summary>
-
-**R1 (threshold)**
-```splunk
+</details> <details> <summary><strong>Splunk (SPL)</strong></summary>
+  
+R1 (threshold)
+```
 index=cowrie eventid="cowrie.login.failed"
 | bucket _time span=5m
 | stats count by _time, src_ip
 | where count >= 10
 ```
-
 R2 (success)
 ```
 index=cowrie eventid="cowrie.login.success"
 ```
+
+</details> <details> <summary><strong>Microsoft Sentinel (KQL)</strong></summary>
 
 R1 (threshold)
 ```
@@ -79,13 +80,11 @@ Cowrie_CL
 | summarize cnt=count() by src_ip=src_ip_s, bin(TimeGenerated, 5m)
 | where cnt >= 10
 ```
-
 R2 (success)
 ```
 Cowrie_CL
 | where eventid_s == "cowrie.login.success"
 ```
-</details>
 
 
 **How I respond:** see [PLAYBOOK.md](PLAYBOOK.md)
