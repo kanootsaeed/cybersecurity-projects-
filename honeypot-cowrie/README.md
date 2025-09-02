@@ -120,7 +120,7 @@ How I respond: see PLAYBOOK.md
 
 ### ⚙️ Installation Steps  
 
-### 1. System Update  
+#### 1. System Update  
 After installing Ubuntu, updated and upgraded system packages:  
 
 ```bash
@@ -128,7 +128,7 @@ sudo apt update && sudo apt upgrade -y
 ```
 ![Step 1](./screenshots/01-system-update.png)
 
-### 2. Install Required Dependencies  
+#### 2. Install Required Dependencies  
 
 Cowrie requires Python3, Git, and several supporting libraries.  
 
@@ -137,7 +137,7 @@ sudo apt install -y git python3 python3-venv python3-dev libssl-dev libffi-dev b
 ```
 ![step 2](./screenshots/02-install-dependencies.png)
 
-### 3. Create a Dedicated User for Cowrie
+#### 3. Create a Dedicated User for Cowrie
 
 Create a non-privileged user account for running Cowrie:
 
@@ -148,7 +148,7 @@ You will be prompted to enter user details (Full Name, Room Number, etc.).
 Press ENTER to accept the defaults, or enter placeholder values if you prefer.
 ![step 3](./screenshots/03-create-cowrie-user.png)
 
-### 4. Clone the Cowrie Repository  
+#### 4. Clone the Cowrie Repository  
 
 Switch to the `cowrie` user and clone the official Cowrie repository from GitHub:  
 
@@ -159,7 +159,7 @@ cd cowrie
 ```
 ![step 4](./screenshots/04-clone-cowrie-repo.png) 
 
-### 5. Create and Activate Python Virtual Environment  
+#### 5. Create and Activate Python Virtual Environment  
 
 Cowrie should be installed inside a virtual environment to keep dependencies isolated.  
 
@@ -169,7 +169,7 @@ source cowrie-env/bin/activate
 ```
 ![step 5](./screenshots/05-setup-venv.png)
 
-### 6. Install Python Dependencies
+#### 6. Install Python Dependencies
 
 Cowrie requires several Python libraries. Install all dependencies listed in the `requirements.txt` file:
 
@@ -183,7 +183,7 @@ pip list
 ```
 ![step 6](./screenshots/06-install-pip-dependencies.png) 
 
-### 7. Configure Cowrie
+#### 7. Configure Cowrie
 
 Copy the default configuration file to create your own working `cowrie.cfg` file:
 
@@ -196,7 +196,7 @@ ls -la etc/
 ```
 ![step 7](./screenshots/07-configure-cowrie.png)
 
-### 8. Start and Verify Cowrie
+#### 8. Start and Verify Cowrie
 
 Start the Cowrie honeypot using the provided script:
 
@@ -210,7 +210,7 @@ bin/cowrie status
 ![step 8](./screenshots/08-start-cowrie.png)
 ![step 8](./screenshots/08-verify-status.png)
 
-### 9. Monitor Cowrie Logs
+#### 9. Monitor Cowrie Logs
 
 Cowrie stores logs in the `var/log/cowrie/` directory. These logs capture all SSH/Telnet connection attempts, authentication attempts, and commands executed by attackers.
 
@@ -225,7 +225,7 @@ tail -f var/log/cowrie/cowrie.log
 ```
 ![step 9](./screenshots/09-monitor-logs.png)
 
-### 10. Simulate Attack Attempts
+#### 10. Simulate Attack Attempts
 
 To validate that Cowrie is functioning, attempt to connect via SSH.  
 Remember, Cowrie listens on **port 2222** by default, not the standard port 22. 
