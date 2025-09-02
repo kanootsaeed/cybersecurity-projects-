@@ -33,6 +33,17 @@ H -->|Contain| I["Block IP (lab)"];
 H -->|Escalate| J["Escalate to SOC2 / IR Team\n(Create ticket in Jira/ServiceNow)"];
 H -->|Close/Tune| K["Adjust threshold / whitelist known scanner"];
 ```
+## Quickstart (Demo)
+
+```bash
+# Install jq if needed
+# macOS: brew install jq
+# Ubuntu/Debian: sudo apt update && sudo apt install -y jq
+
+# Generate results from sample logs (or real Cowrie logs if present)
+chmod +x run.sh && ./run.sh
+```
+
 ### Detection & Response
 
 **What I detect**
