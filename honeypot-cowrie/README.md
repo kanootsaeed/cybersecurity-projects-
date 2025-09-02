@@ -57,7 +57,8 @@ H -->|Close/Tune| K["Adjust threshold / whitelist known scanner"];
 </details>
 
 <details>
-<summary><strong>Splunk (SPL)</strong></summary>
+
+  <summary><strong>Splunk (SPL)</strong></summary>
 
 **R1 (threshold)**
 ```splunk
@@ -71,6 +72,7 @@ Threshold: by src_ip ≥ 10 in 5 minutes
 R2 (success)
 Query:
 eventid: "cowrie.login.success"
+
 </details> <details> <summary><strong>Splunk (SPL)</strong></summary>
 
 R1 (threshold)
@@ -81,6 +83,7 @@ index=cowrie eventid="cowrie.login.failed"
 
 R2 (success)
 index=cowrie eventid="cowrie.login.success"
+
 </details> <details> <summary><strong>Splunk (SPL)</strong></summary>
 
 R1 (threshold)
@@ -91,6 +94,7 @@ index=cowrie eventid="cowrie.login.failed"
 
 R2 (success)
 index=cowrie eventid="cowrie.login.success"
+
 </details> <details> <summary><strong>Microsoft Sentinel (KQL)</strong></summary>
 
 R1 (threshold)
@@ -104,6 +108,7 @@ Cowrie_CL
 R2 (success)
 Cowrie_CL
 | where eventid_s == "cowrie.login.success"
+
 </details>
 
 **How I respond:** see [PLAYBOOK.md](PLAYBOOK.md)
