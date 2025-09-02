@@ -87,7 +87,7 @@ R2 (success)
 Cowrie_CL
 | where eventid_s == "cowrie.login.success"
 ```
----
+
 
 **How I respond:** see [PLAYBOOK.md](PLAYBOOK.md)
 
