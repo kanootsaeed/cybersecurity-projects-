@@ -43,14 +43,17 @@ H -->|Close/Tune| K["Adjust threshold / whitelist known scanner"];
 - Threshold rule: [`detections/ssh_bruteforce_sigma.yml`](detections/ssh_bruteforce_sigma.yml)
 - Success rule:   [`detections/ssh_success_sigma.yml`](detections/ssh_success_sigma.yml)
 
+<details>
+  
 <summary><strong>Elastic (KQL)</strong> — create a Threshold rule</summary>
 
-**R1 (threshold)**  
+R1 (threshold)
 Query:
-```text
+```
 eventid: "cowrie.login.failed"
 ```
 Threshold: by src_ip ≥ 10 in 5 minutes
+
 R2 (success)
 Query:
 ```
@@ -86,6 +89,7 @@ Cowrie_CL
 | where eventid_s == "cowrie.login.success"
 ```
 
+</details>
 
 **How I respond:** see [PLAYBOOK.md](PLAYBOOK.md)
 
