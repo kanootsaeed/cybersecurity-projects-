@@ -65,7 +65,7 @@ index=cowrie eventid="cowrie.login.failed"
 | bucket _time span=5m
 | stats count by _time, src_ip
 | where count >= 10
-
+```
 ---
 
 ### 🛠️ Environment Setup  
