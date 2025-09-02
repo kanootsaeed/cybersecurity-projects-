@@ -33,5 +33,5 @@ jq -r '
 ' "$LOG" > "$OUT_DIR/commands.csv" || true
 
 echo "[*] Wrote $OUT_DIR/events.csv, $OUT_DIR/top_attackers.csv, $OUT_DIR/commands.csv"
-Make it executable (once):
-chmod +x run.sh
+# Make it executable (once):
+# chmod +x run.sh
