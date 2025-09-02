@@ -68,6 +68,8 @@ index=cowrie eventid="cowrie.login.failed"
 ```
 ---
 
+
+
 ### 🛠️ Environment Setup  
 
 - **Host Machine:** macOS (Apple Silicon)  
