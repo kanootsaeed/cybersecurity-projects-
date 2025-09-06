@@ -99,7 +99,8 @@ services:
     depends_on: [elasticsearch, kibana]
 ```
 ### 4. Add minimal Filebeat config + Apache module
-```
+
+```md
 Create filebeat/filebeat.yml and filebeat/modules.d/apache.yml:
 # filebeat/filebeat.yml
 filebeat.config.modules:
@@ -128,7 +129,7 @@ setup.ilm.enabled: auto
 ```
 ### 5. Seed test data quickly
 Create sample-logs/apache_access.log and drop a few lines (or generate):
-```
+```md
 # few static lines
 printf '%s "GET /wp-login.php HTTP/1.1" 401 245 "-" "curl/8.1.0"\n' "$(date '+%d/%b/%Y:%H:%M:%S %z')" >> sample-logs/apache_access.log
 printf '%s "GET /about HTTP/1.1" 200 532 "-" "Mozilla/5.0"\n'       "$(date '+%d/%b/%Y:%H:%M:%S %z')" >> sample-logs/apache_access.log
