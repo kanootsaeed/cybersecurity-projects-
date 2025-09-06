@@ -54,11 +54,12 @@ cp .env.example .env
 # open .env and set your passwords locally (this file is git-ignored)
 ```
 
-3. Add Docker Compose
+```md
+### 3. Add Docker Compose
 
-Create docker/docker-compose.yml:
-```
-#docker/docker-compose.yml
+Create `docker/docker-compose.yml`:
+
+```yaml
 version: "3.9"
 services:
   elasticsearch:
@@ -71,6 +72,7 @@ services:
       - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
     ports:
       - "9200:9200"
+
   kibana:
     container_name: kib01
     image: docker.elastic.co/kibana/kibana:${ELASTIC_VERSION}
@@ -81,6 +83,7 @@ services:
     ports:
       - "5601:5601"
     depends_on: [elasticsearch]
+
   filebeat:
     container_name: fb01
     image: docker.elastic.co/beats/filebeat:${ELASTIC_VERSION}
