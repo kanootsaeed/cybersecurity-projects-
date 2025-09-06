@@ -54,9 +54,9 @@ cp .env.example .env
 # open .env and set your passwords locally (this file is git-ignored)
 ```
 
-```md
-### 3. Add Docker Compose
 
+### 3. Add Docker Compose
+```md
 Create `docker/docker-compose.yml`:
 
 ```yaml
@@ -98,7 +98,7 @@ services:
       - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
     depends_on: [elasticsearch, kibana]
 ```
-4. Add minimal Filebeat config + Apache module
+### 4. Add minimal Filebeat config + Apache module
 ```
 Create filebeat/filebeat.yml and filebeat/modules.d/apache.yml:
 # filebeat/filebeat.yml
@@ -126,7 +126,7 @@ setup.ilm.enabled: auto
     var.paths:
       - /usr/share/filebeat/logs/apache_access.log*
 ```
-5. Seed test data quickly
+### 5. Seed test data quickly
 Create sample-logs/apache_access.log and drop a few lines (or generate):
 ```
 # few static lines
@@ -143,6 +143,46 @@ done
 Then restart Filebeat only (if already running):
 docker compose -f docker/docker-compose.yml restart filebeat
 
+### 6. Import the Kibana objects (views + dashboard)
+
+1) **Create the data view** (if it doesn’t already exist)  
+   *Kibana → Stack Management → Data views → Create data view*  
+   - **Name/pattern:** `logs-*`  
+   - **Time field:** `@timestamp`  
+   - **Default:** Yes
+
+2) **Import saved objects** (visualizations + dashboard)  
+   *Kibana → Stack Management → Saved Objects → Import*  
+   - File: `kibana-exports/export.ndjson`  
+   - If prompted, check **Automatically overwrite conflicts**.
+
+3) **Open the dashboard**  
+   *Kibana → Dashboard →* **Apache – Mini SOC Dashboard**  
+   - Time picker: try **Last 15 minutes** (or expand to **Last 7 days** if needed).
+
+
+### 7. Run & URLs (for convenience)
+
+```bash
+cd docker
+docker compose up -d
+```
+Kibana: http://localhost:5601
+Elasticsearch: http://localhost:9200
+Log in with the credentials you set in your local .env.
+
+8. Screenshots
+discover_4xx.png — Discover with columns
+(@timestamp, event.dataset, http.response.status_code, message, source.ip, url.path, user_agent.original)
+and KQL filter:
+event.dataset:"apache.access" and http.response.status_code >= 400 and http.response.status_code < 500
+![Discover 4xx view](docs/screenshots/discover_4xx.png)
+dashboard_events_over_time.png — Panel 1: Apache events over time
+![Events over time](docs/screenshots/dashboard_events_over_time.png)
+dashboard_top_4xx_urls.png — Panel 2: Top 4xx URLs
+![Top 4xx URLs](docs/screenshots/dashboard_top_4xx_urls.png)
+
+   
 
 
 
