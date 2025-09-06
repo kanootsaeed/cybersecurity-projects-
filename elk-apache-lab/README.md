@@ -33,6 +33,7 @@ KIBANA_SYSTEM_PASSWORD=ChangeMe123! # optional; placeholder
 ```
 
 3.Add Docker Compose
+
 Create docker/docker-compose.yml:
 ```version: "3.9"
 services:
