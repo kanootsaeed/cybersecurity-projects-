@@ -6,7 +6,7 @@
 
 ## What you’ll see
 - **Panel 1:** Apache events over time (@timestamp)
-- **Panel 2:** Top 4xx URLs (KQL: `event.dataset:"apache.access" and http.response.status_code >= 400 and http.response.status_code < 500`)
+- **Panel 2:** Top 4xx URLs **KQL used** `event.dataset:"apache.access" and http.response.status_code >= 400 and http.response.status_code < 500`)
 
 ## Architecture
 - Filebeat ➜ Elasticsearch (data stream)
