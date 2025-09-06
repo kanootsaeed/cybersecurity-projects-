@@ -19,13 +19,15 @@
 ## 1. Quick start
 > Requires Docker Desktop
 
-```cd docker
+```
+cd docker
 docker compose up -d
 ```
 
 2. Add security-safe env + gitignore
    
 ```
+# .env (example)
 ELASTIC_VERSION=8.13.4
 ELASTIC_USERNAME=elastic
 ELASTIC_PASSWORD=ChangeMe123!      # placeholder; set your own locally
@@ -35,7 +37,9 @@ KIBANA_SYSTEM_PASSWORD=ChangeMe123! # optional; placeholder
 3. Add Docker Compose
 
 Create docker/docker-compose.yml:
-```version: "3.9"
+```
+#docker/docker-compose.yml
+version: "3.9"
 services:
   elasticsearch:
     container_name: es01
