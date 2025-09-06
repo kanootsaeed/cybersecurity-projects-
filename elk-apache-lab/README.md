@@ -24,7 +24,8 @@ docker compose up -d
 `
 
 2. Add security-safe env + gitignore
-`# .env.example
+   
+`
 ELASTIC_VERSION=8.13.4
 ELASTIC_USERNAME=elastic
 ELASTIC_PASSWORD=ChangeMe123!      # placeholder; set your own locally
