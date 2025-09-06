@@ -16,14 +16,14 @@
 - `docs/screenshots/` — Discover & Dashboard screenshots
 
 
-## Quick start
+## 1. Quick start
 > Requires Docker Desktop
 
 `cd docker
 docker compose up -d
 `
 
-Add security-safe env + gitignore
+2. Add security-safe env + gitignore
 `# .env.example
 ELASTIC_VERSION=8.13.4
 ELASTIC_USERNAME=elastic
@@ -31,9 +31,9 @@ ELASTIC_PASSWORD=ChangeMe123!      # placeholder; set your own locally
 KIBANA_SYSTEM_PASSWORD=ChangeMe123! # optional; placeholder
 `
 
-Add Docker Compose
+3.Add Docker Compose
 Create docker/docker-compose.yml:
-version: "3.9"
+`version: "3.9"
 services:
   elasticsearch:
     container_name: es01
@@ -45,7 +45,6 @@ services:
       - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
     ports:
       - "9200:9200"
-
   kibana:
     container_name: kib01
     image: docker.elastic.co/kibana/kibana:${ELASTIC_VERSION}
@@ -56,7 +55,6 @@ services:
     ports:
       - "5601:5601"
     depends_on: [elasticsearch]
-
   filebeat:
     container_name: fb01
     image: docker.elastic.co/beats/filebeat:${ELASTIC_VERSION}
@@ -70,7 +68,7 @@ services:
       - ELASTIC_USERNAME=${ELASTIC_USERNAME}
       - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
     depends_on: [elasticsearch, kibana]
-    
+    `
    
 
 
