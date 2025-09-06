@@ -1,0 +1,6 @@
+# filebeat/modules.d/apache.yml
+- module: apache
+  access:
+    enabled: true
+    var.paths:
+      - /usr/share/filebeat/logs/apache_access.log*
