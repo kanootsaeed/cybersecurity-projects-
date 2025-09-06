@@ -174,8 +174,11 @@ Log in with the credentials you set in your local .env.
 
 8. Screenshots
 discover_4xx.png — Discover with columns
+
 (@timestamp, event.dataset, http.response.status_code, message, source.ip, url.path, user_agent.original)
+
 and KQL filter:
+
 event.dataset:"apache.access" and http.response.status_code >= 400 and http.response.status_code < 500
 
 ![Discover 4xx view](docs/screenshots/6.3-discover.png)
@@ -185,8 +188,6 @@ dashboard_events_over_time.png — Panel 1: Apache events over time
 ![Events over time](docs/screenshots/6.6-dashboard.png)
 
 dashboard_top_4xx_urls.png — Panel 2: Top 4xx URLs
-
-![Top 4xx URLs](docs/screenshots/dashboard_top_4xx_urls.png)
 
    
 
