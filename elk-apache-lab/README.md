@@ -14,6 +14,28 @@
 - `kibana-exports/export.ndjson` — saved Data View, visualizations, dashboard
 - `sample-logs/apache_access.log` — test data you can replay
 - `docs/screenshots/` — Discover & Dashboard screenshots
+## Repository layout
+
+```text
+elk-apache-lab/
+├─ docker/
+│  └─ docker-compose.yml
+├─ filebeat/
+│  ├─ filebeat.yml
+│  └─ modules.d/
+│     └─ apache.yml
+├─ sample-logs/
+│  └─ apache_access.log
+├─ kibana-exports/
+│  └─ export.ndjson
+├─ docs/
+│  └─ screenshots/
+│     ├─ discover.png
+│     └─ dashboard.png
+├─ .env.example
+├─ .gitignore
+└─ README.md
+
 
 
 ## 1. Quick start
@@ -24,14 +46,21 @@ cd docker
 docker compose up -d
 ```
 
-2. Add security-safe env + gitignore
-   
+2. Add security-safe env 
 ```
-# .env (example)
+md
+## Environment & secrets
+
+> Don’t commit real secrets. This repo ships a **.env.example**; copy it locally to **.env** and set your own values.
+
+Create `.env.example` at the lab root:
+
+```bash
+# .env.example
 ELASTIC_VERSION=8.13.4
 ELASTIC_USERNAME=elastic
-ELASTIC_PASSWORD=ChangeMe123!      # placeholder; set your own locally
-KIBANA_SYSTEM_PASSWORD=ChangeMe123! # optional; placeholder
+ELASTIC_PASSWORD=ChangeMe123!        # placeholder – set your own locally
+KIBANA_SYSTEM_PASSWORD=ChangeMe123!  # placeholder – set your own locally
 ```
 
 3. Add Docker Compose
@@ -119,6 +148,7 @@ done
 ```
 Then restart Filebeat only (if already running):
 docker compose -f docker/docker-compose.yml restart filebeat
+
 
 
 
