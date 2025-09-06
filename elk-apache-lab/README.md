@@ -46,21 +46,12 @@ cd docker
 docker compose up -d
 ```
 
-2. Add security-safe env 
-```
-md
-## Environment & secrets
-
-> Don’t commit real secrets. This repo ships a **.env.example**; copy it locally to **.env** and set your own values.
-
-Create `.env.example` at the lab root:
+### Environment
+This repo includes a sample env file. Copy it locally and edit your own values:
 
 ```bash
-# .env.example
-ELASTIC_VERSION=8.13.4
-ELASTIC_USERNAME=elastic
-ELASTIC_PASSWORD=ChangeMe123!        # placeholder – set your own locally
-KIBANA_SYSTEM_PASSWORD=ChangeMe123!  # placeholder – set your own locally
+cp .env.example .env
+# open .env and set your passwords locally (this file is git-ignored)
 ```
 
 3. Add Docker Compose
