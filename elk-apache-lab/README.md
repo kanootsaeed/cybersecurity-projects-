@@ -32,7 +32,7 @@ ELASTIC_PASSWORD=ChangeMe123!      # placeholder; set your own locally
 KIBANA_SYSTEM_PASSWORD=ChangeMe123! # optional; placeholder
 ```
 
-3.Add Docker Compose
+3. Add Docker Compose
 
 Create docker/docker-compose.yml:
 ```version: "3.9"
@@ -71,6 +71,52 @@ services:
       - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
     depends_on: [elasticsearch, kibana]
 ```
+4. Add minimal Filebeat config + Apache module
+```
+Create filebeat/filebeat.yml and filebeat/modules.d/apache.yml:
+# filebeat/filebeat.yml
+filebeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: false
+
+output.elasticsearch:
+  hosts: ["http://elasticsearch:9200"]
+  username: ${ELASTIC_USERNAME}
+  password: ${ELASTIC_PASSWORD}
+
+setup.kibana:
+  host: "http://kibana:5601"
+  username: ${ELASTIC_USERNAME}
+  password: ${ELASTIC_PASSWORD}
+
+setup.ilm.enabled: auto
+```
+```
+# filebeat/modules.d/apache.yml
+- module: apache
+  access:
+    enabled: true
+    var.paths:
+      - /usr/share/filebeat/logs/apache_access.log*
+```
+5. Seed test data quickly
+Create sample-logs/apache_access.log and drop a few lines (or generate):
+```
+# few static lines
+printf '%s "GET /wp-login.php HTTP/1.1" 401 245 "-" "curl/8.1.0"\n' "$(date '+%d/%b/%Y:%H:%M:%S %z')" >> sample-logs/apache_access.log
+printf '%s "GET /about HTTP/1.1" 200 532 "-" "Mozilla/5.0"\n'       "$(date '+%d/%b/%Y:%H:%M:%S %z')" >> sample-logs/apache_access.log
+
+# small burst generator
+for p in /admin /server-status /phpmyadmin /wp-login.php; do
+  code=$(( (RANDOM % 3)*100 + 200 ))
+  printf '%s "GET %s HTTP/1.1" %s 312 "-" "Mozilla/5.0"\n' \
+    "$(date '+%d/%b/%Y:%H:%M:%S %z')" "$p" "$code" >> sample-logs/apache_access.log
+done
+```
+Then restart Filebeat only (if already running):
+docker compose -f docker/docker-compose.yml restart filebeat
+
+
 
    
 
