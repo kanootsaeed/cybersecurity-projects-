@@ -178,11 +178,11 @@ discover_4xx.png — Discover with columns
 and KQL filter:
 event.dataset:"apache.access" and http.response.status_code >= 400 and http.response.status_code < 500
 
-![Discover 4xx view](docs/screenshots/discover_4xx.png)
+![Discover 4xx view](docs/screenshots/6.3-discover.png)
 
 dashboard_events_over_time.png — Panel 1: Apache events over time
 
-![Events over time](docs/screenshots/dashboard_events_over_time.png)
+![Events over time](docs/screenshots/6.6-dashboard.png)
 
 dashboard_top_4xx_urls.png — Panel 2: Top 4xx URLs
 
