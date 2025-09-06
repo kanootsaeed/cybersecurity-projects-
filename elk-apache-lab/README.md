@@ -46,7 +46,7 @@ cd docker
 docker compose up -d
 ```
 
-### Environment
+### 2. Environment
 This repo includes a sample env file. Copy it locally and edit your own values:
 
 ```bash
