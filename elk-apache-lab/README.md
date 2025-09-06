@@ -1,6 +1,8 @@
 # ELK Apache Lab — Mini SOC Dashboard
 
-**Goal:** Ingest Apache access logs into Elasticsearch with Filebeat, then build a small SOC-style dashboard in Kibana to spot 4xx activity.
+> **TL;DR**: I stood up Elasticsearch/Kibana/Filebeat with Docker, ingested Apache access logs, and built a mini SOC dashboard.
+> **Skills shown**: log ingestion (Filebeat), parsing (apache module), KQL triage, dashboards, Docker basics, security hygiene (.env/.gitignore).
+> **Run it**: `cd docker && docker compose up -d` → open Kibana at http://localhost:5601.
 
 ## What you’ll see
 - **Panel 1:** Apache events over time (@timestamp)
@@ -16,22 +18,21 @@
 - `docs/screenshots/` — Discover & Dashboard screenshots
 ## Repository layout
 
-```text
+```md
 elk-apache-lab/
 ├─ docker/
-│  └─ docker-compose.yml
+│ └─ docker-compose.yml
 ├─ filebeat/
-│  ├─ filebeat.yml
-│  └─ modules.d/
-│     └─ apache.yml
+│ ├─ filebeat.yml
+│ └─ modules.d/
+│ └─ apache.yml
 ├─ sample-logs/
-│  └─ apache_access.log
-├─ kibana-exports/
-│  └─ export.ndjson
+│ └─ apache_access.log
 ├─ docs/
-│  └─ screenshots/
-│     ├─ discover.png
-│     └─ dashboard.png
+│ └─ screenshots/
+│ ├─ discover_4xx.png
+│ ├─ dashboard_events_over_time.png
+│ └─ dashboard_top_4xx_urls.png
 ├─ .env.example
 ├─ .gitignore
 └─ README.md
@@ -177,20 +178,25 @@ discover_4xx.png — Discover with columns
 
 (@timestamp, event.dataset, http.response.status_code, message, source.ip, url.path, user_agent.original)
 
-and KQL filter:
-
+**KQL used**
 event.dataset:"apache.access" and http.response.status_code >= 400 and http.response.status_code < 500
+
 
 ![Discover 4xx view](docs/screenshots/6.3-discover.png)
 
 dashboard_events_over_time.png — Panel 1: Apache events over time
 
 ![Events over time](docs/screenshots/6.6-dashboard.png)
+- Small spike at end of window; in a SOC I’d pivot timeframe back 24h and check source IP distribution.  
 
 dashboard_top_4xx_urls.png — Panel 2: Top 4xx URLs
-
+- `/wp-login.php` dominates 401s → likely credential probing; next step: filter by `source.ip` and user-agent to confirm automation.
    
-
+### Troubleshooting
+- **No data in Discover**: set time to “Last 7 days”; ensure data view `logs-*` exists and is default.
+- **Filebeat started but no docs**: `docker compose logs -f filebeat`; confirm `sample-logs/apache_access.log` path matches `filebeat/modules.d/apache.yml`.
+- **Auth issues to ES/Kibana**: copy `.env.example` → `.env` and use those values locally (do not commit `.env`).
+- **Recreate the pipeline**: `docker compose restart filebeat`.
 
 
    
